@@ -1,0 +1,9 @@
+{
+    "scripts": {
+    "run-k6-and-generate-report": "k6 run --out json=\"C:/Users/Matias/Desktop/yellow-pepper-assessment-performance/getPetByIdtests/testResults/test_results.json getPetByIdTests/basicScript.js\"",
+    "open-byconsole-examples": "cls && npx cypress run --browser chrome --headless --spec \"./cypress/integration/examples/*.spec.js\"",
+    "open-byconsole": "cls && npx cypress run --browser chrome --headless --spec \"./cypress/integration/*.spec.js\"",
+    "complete-test:chrome": "npx cypress run --reporter mochawesome --browser chrome --spec \"./cypress/integration/applyDigital/skillTest.spec.js\"",
+    "test-cases:chrome": "npx cypress run --reporter mochawesome --browser chrome --spec \"./cypress/integration/applyDigital/testCases.spec.js\""
+    }
+}
