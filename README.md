@@ -1,6 +1,6 @@
 # yellow-pepper-assessment-performance
 
-This is an automation project using k6 for the creation of a Performance Testing framework to test the performance of the APIs exposed by[Swagger PetStore Project](https://github.com/swagger-api/swagger-petstore) running in a local environment.
+This is an automation project using k6 for the creation of a Performance Testing framework to test the performance of the APIs exposed by [Swagger PetStore Project](https://github.com/swagger-api/swagger-petstore) running in a local environment.
 
 ***
 
@@ -8,48 +8,66 @@ This is an automation project using k6 for the creation of a Performance Testing
 
 This project uses the following languages and frameworks:
 
-* [K6](https://k6.io/) as load testing framework
-  automatizadas.
+* [K6](https://k6.io/) as load testing framework.
 * [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript) as programming language.
 
 ***
 
 ## Prerequisites:
 
-1. Install [K6](https://k6.io/docs/get-started/installation/)
-2. Install [GIT](https://git-scm.com)
+1. Install [K6](https://k6.io/docs/get-started/installation/).
+2. Install [GIT](https://git-scm.com).
 3. Run [Swagger PetStore Project](https://github.com/swagger-api/swagger-petstore) locally.
 
 ## Test Analysis
 
 **Scope and Test Cases**:
 
-Main scope is to put the apis under different loads to see how it responds by checking key performance metrics, which are:
+Main scope is to put the apis under different loads to see how they respond by checking key performance metrics, which are:
 
 ***Response Time***
+
 Measures the total time it takes a system to respond to a user request.
+
 ***Average Response Time***
+
 Represents the typical response time the user will experience.
+
 ***95th Percentile***
+
 Represents the time required for 95% of requests to be completed successfully.
+
 ***Throughput***
+
 Measures the number of requests that can be processed by a system in a given time.
 Total number of requests divided by total time taken.
+
 ***Error Percentage***
+
 Measures the percentage of requests that failed or didn't receiv a response. It identifies the issues and bottlenecks that affect the performance.
+
 ***CPU Utilization***
+
 Measures the percentage of CPU capacity utilized while processing the requests. Identifies possible bottlenecks when nearing full utilization.
+
+**
 
 The following tests will be conducted for each request type endpoint:
 
 ***Load Test***
+
 This test is conducted to see how the api responds under an average load of parallel requests in an average amount of time.
+
 ***Stress Test***
+
 This test is conducted to see how the api responds under a heavily increased load to test its limits in an average amount of time.
+
 ***Spike Test***
+
 This test is conducted to see how the api responds under an extreme load in a short period of time (ramp up of traffic that quickly dies down) to check the api reliability.
 
-**Test Result Analysis**
+
+### **Test Result Analysis**
 
 All tests can be run by issuing the following command in a terminal
 `k6 run <test-file>` for example, standing at the root of the project, the following command will run a load test for the Get Pet By ID API `k6 run getPetByIdTests/loadTest.js`
@@ -57,6 +75,7 @@ All tests generate an html report in the corresponding testResults folder with t
 An html report is already provided for each test for the purpose of this analysis.
 
 ***Get Pet By ID Endpoint***
+
 After carefully analysing each report, we can see that:
 For 100 requests done in parallel by 10 users we have an average response time of 1 second averaging 10 requests/second. With no failed requests.
 And 20% cpu usage out of 1600%.
@@ -69,6 +88,7 @@ In the spike test is where we see the performance starting to be affected, we qu
 In conclusion, this GET api responds correctly under regular loads and heavy loads when done over time. But when its put under a really heavy load in a really short amount of time (i.e a DDoS attack) it has a high error rate and a long response time, reducing its availability to the users and highly reducing its performance as well. This gives the API good scalability but vulnerability to attacks. So security would be the main concern for this API in the long run.
 
 ***Post Pet Endpoint***
+
 After carefully analysing each report, we can see that:
 For a 100 requests done in parallel by 10 users we have an average response time of 1 second averaging 9.79 requests per second. Up until here we see no issues, but out of 100 requests done we have 1 request failure, which turns into a 1% error rate in the average use of the API. This together with a CPU usage of 200% out of 1600% we see no bottleneck but possible API unstability.
 
