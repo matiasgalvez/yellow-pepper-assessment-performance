@@ -1,12 +1,12 @@
 # yellow-pepper-assessment-performance
 
-This is an automation proyect using k6 for the creation of a Performance Testing framework to test the performance of the APIs exposed by[Swagger PetStore Proyect](https://github.com/swagger-api/swagger-petstore) running in a local environment.
+This is an automation project using k6 for the creation of a Performance Testing framework to test the performance of the APIs exposed by[Swagger PetStore Project](https://github.com/swagger-api/swagger-petstore) running in a local environment.
 
 ***
 
 ## Languages & Frameworks
 
-This proyect uses the following languages and frameworks:
+This project uses the following languages and frameworks:
 
 * [K6](https://k6.io/) as load testing framework
   automatizadas.
@@ -18,7 +18,7 @@ This proyect uses the following languages and frameworks:
 
 1. Install [K6](https://k6.io/docs/get-started/installation/)
 2. Install [GIT](https://git-scm.com)
-3. Run [Swagger PetStore Proyect](https://github.com/swagger-api/swagger-petstore) locally.
+3. Run [Swagger PetStore Project](https://github.com/swagger-api/swagger-petstore) locally.
 
 ## Test Analysis
 
@@ -52,7 +52,7 @@ This test is conducted to see how the api responds under an extreme load in a sh
 **Test Result Analysis**
 
 All tests can be run by issuing the following command in a terminal
-`k6 run <test-file>` for example, standing at the root of the proyect, the following command will run a load test for the Get Pet By ID API `k6 run getPetByIdTests/loadTest.js`
+`k6 run <test-file>` for example, standing at the root of the project, the following command will run a load test for the Get Pet By ID API `k6 run getPetByIdTests/loadTest.js`
 All tests generate an html report in the corresponding testResults folder with the test name.
 An html report is already provided for each test for the purpose of this analysis.
 
