@@ -81,6 +81,8 @@ For 100 requests done in parallel by 10 users we have an average response time o
 And 20% cpu usage out of 1600%.
 This is the average use this api would be given, and we see no bottlenecks or potential issues here.
 
+In a load test with a heavier load of 8759 requests with 250 concurrent users we have an average response time of 1s and no failed requests. With a 100% CPU usage out of 16000% the API responds well to this.
+
 In a heavy stress test over an average period of time we see that a total of 778451 requests were made with an average response time of 1s, with a throughput of 4692 requests per second, with no failed requests. That combined with 10000 concurrent users and a CPU usage of 390% out of 1600% we still see no bottleneck when the heavy load ramps up slowly.
 
 In the spike test is where we see the performance starting to be affected, we quickly ramp up the concurrent users to 23000 to end up with 645107 total requests out of which 32317 have failed. So we now have a request error rate of 5% and an average response time of 7s (seven times the average) which would greatly affect user experience. Together with a CPU Usage of 540% we now see a clear bottleneck resulting in request failures and long response times to put up with concurrent users.
@@ -91,6 +93,8 @@ In conclusion, this GET api responds correctly under regular loads and heavy loa
 
 After carefully analysing each report, we can see that:
 For a 100 requests done in parallel by 10 users we have an average response time of 1 second averaging 9.79 requests per second. Up until here we see no issues, but out of 100 requests done we have 1 request failure, which turns into a 1% error rate in the average use of the API. This together with a CPU usage of 200% out of 1600% we see no bottleneck but possible API unstability.
+
+In a load test with 8765 requests with 250 concurrent users and an average response time of 1s. With only 2 failed requests turning into a total 0.02% error rate and a CPU usage of 390% out of 1600%. We see that the the API responds well to this load.
 
 In a heavy stress test over an average period of time we see that a total of 612015 requests were madewith an average response time of 3s, with a throughput of 3689.42 requests per second. This is done with 10000 concurrent users, we are already starting to see the performance being highly affected. Together with 160347 Failed Requests that turn into an Error Rate of 26% with a CPU usage of 667% out of 1600% we see a bottleneck that causes the API to be available only 74% of the time, which can greatly affect user experience.
 
